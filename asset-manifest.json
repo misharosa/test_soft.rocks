@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/test_soft.rocks/static/css/main.0b4a04e7.css",
-    "main.js": "/test_soft.rocks/static/js/main.a9a2674e.js",
+    "main.js": "/test_soft.rocks/static/js/main.66199700.js",
     "index.html": "/test_soft.rocks/index.html",
     "main.0b4a04e7.css.map": "/test_soft.rocks/static/css/main.0b4a04e7.css.map",
-    "main.a9a2674e.js.map": "/test_soft.rocks/static/js/main.a9a2674e.js.map"
+    "main.66199700.js.map": "/test_soft.rocks/static/js/main.66199700.js.map"
   },
   "entrypoints": [
     "static/css/main.0b4a04e7.css",
-    "static/js/main.a9a2674e.js"
+    "static/js/main.66199700.js"
   ]
 }
