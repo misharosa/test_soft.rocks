@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/test_soft.rocks/static/css/main.0b4a04e7.css",
-    "main.js": "/test_soft.rocks/static/js/main.66199700.js",
+    "main.css": "/test_soft.rocks/static/css/main.70e684b5.css",
+    "main.js": "/test_soft.rocks/static/js/main.d676571d.js",
     "index.html": "/test_soft.rocks/index.html",
-    "main.0b4a04e7.css.map": "/test_soft.rocks/static/css/main.0b4a04e7.css.map",
-    "main.66199700.js.map": "/test_soft.rocks/static/js/main.66199700.js.map"
+    "main.70e684b5.css.map": "/test_soft.rocks/static/css/main.70e684b5.css.map",
+    "main.d676571d.js.map": "/test_soft.rocks/static/js/main.d676571d.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b4a04e7.css",
-    "static/js/main.66199700.js"
+    "static/css/main.70e684b5.css",
+    "static/js/main.d676571d.js"
   ]
 }
