@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./ContactList.css"
 import { useDispatch, useSelector } from "react-redux";
-import {deleteContact, fetchDetailsContact} from "../../store/contactSlice";
+import { fetchDetailsContact } from "../../store/contactSlice";
 
 export const ContactList = () => {
     const { contacts } = useSelector(state => state.contacts)
@@ -18,8 +18,7 @@ export const ContactList = () => {
                         <p>{contact.phone}</p>
                         <p>{contact.email}</p>
                         <div className="contact__button">
-                            <button onClick={() => dispatch(deleteContact(contact.id))}>Delete</button>
-                            <Link to={`/details/${contact.id}`} onClick={() => dispatch(fetchDetailsContact(contact))}>Details</Link>
+                            <Link className="nav-link" to={`/details/${contact.id}`} onClick={() => dispatch(fetchDetailsContact(contact))}>Details</Link>
                         </div>
                     </li>
                 ))}

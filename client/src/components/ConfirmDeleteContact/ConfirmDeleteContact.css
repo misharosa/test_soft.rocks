@@ -1,0 +1,45 @@
+.details__edit > input {
+    border: none;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.details__edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details__edit > button {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.nav-link {
+    color: inherit;
+    width: 60px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 3px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.modal__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}

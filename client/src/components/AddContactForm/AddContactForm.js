@@ -152,7 +152,7 @@ export const AddContactForm = () => {
                 className="form__button"
                 type="submit"
             >
-                Add contact
+                Add
             </button>
         </form>
     )

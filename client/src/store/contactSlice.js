@@ -52,6 +52,18 @@ export const sendNewContact = createAsyncThunk(
     }
 )
 
+export const updateContact = createAsyncThunk(
+    'contacts/updateContact',
+    async (editContactObj, {rejectedWithValue, dispatch}) => {
+        try {
+        dispatch(editContact(editContactObj))
+        await axios.put(`${USERS_URL}/${editContactObj.id}`, editContact)
+        } catch (error) {
+            rejectedWithValue(error.message)
+        }
+    }
+)
+
 const setError = (state, action) => {
     state.status = 'rejected';
     state.error = action.payload
@@ -75,6 +87,11 @@ const contactSlice = createSlice({
         },
         detailsContact (state, action) {
             state.details = state.contacts.find(contact => contact.id === action.payload.id)
+        },
+        editContact (state, action) {
+            state.contacts = state.contacts.map(contact => {
+               return (contact.id === action.payload.id) ? {...contact, ...action.payload} : contact
+            })
         }
     },
 
@@ -93,5 +110,5 @@ const contactSlice = createSlice({
     }
 })
 
-const { addContact, removeContact, detailsContact } = contactSlice.actions
+const { addContact, removeContact, detailsContact, editContact } = contactSlice.actions
 export default contactSlice.reducer

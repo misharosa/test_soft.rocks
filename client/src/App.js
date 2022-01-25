@@ -17,20 +17,18 @@ export const App = () => {
 
   return (
     <>
-    <div className="App">
-        <div className="page-container">
-            <AddContactForm />
-        </div>
+        <div className="App">
+            <div className="page-container">
+                <AddContactForm />
+            </div>
 
-        <Routes>
-        {contacts.length > 0 &&
-            <Route path={`/`} element={
-                <ContactList />
-            }
-            />}
-            <Route path={`/details/${details.id}`} element={<ConfirmDeleteContact details={details} />} />
-        </Routes>
-    </div>
+            <Routes>
+                {contacts.length > 0 &&
+                <Route path={`/test_soft.rocks`} element={<ContactList />}/>
+                }
+                <Route path={`/details/${details.id}`} element={<ConfirmDeleteContact />} />
+            </Routes>
+        </div>
     </>
   );
 }
