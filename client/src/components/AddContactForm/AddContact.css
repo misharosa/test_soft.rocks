@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form__input {
+    width: 200px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    height: 30px;
+    padding: 10px;
+}
+
+.form__button {
+    cursor: pointer;
+    border: none;
+    height: 30px;
+    width: 120px;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+}
+
+.validation {
+    color: red;
+    font-size: 12px;
+}

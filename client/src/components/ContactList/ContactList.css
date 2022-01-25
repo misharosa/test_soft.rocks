@@ -1,0 +1,28 @@
+.contact__item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.contact__item > p {
+    padding: 3px;
+}
+
+.contact__list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.contact__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul, p {
+    padding: 0;
+    margin: 0;
+}
