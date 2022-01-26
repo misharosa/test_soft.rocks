@@ -95,7 +95,7 @@ export const ConfirmDeleteContact = () => {
                     </NavLink>
                     <NavLink
                         className="nav-link"
-                        to={`/details/${details.id}`}
+                        to={`/test_soft.rocks/details/${details.id}`}
                         onClick={() => setIsOpen(false)}
                     >
                         Close
