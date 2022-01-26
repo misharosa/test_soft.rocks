@@ -71,12 +71,14 @@ const setError = (state, action) => {
 
 const contactSlice = createSlice({
     name: "contacts",
+
     initialState: {
         contacts: [],
         details: {},
         status: null,
         error: null,
     },
+
     reducers: {
         addContact (state, action) {
             state.contacts.push({...action.payload, id: new Date().toISOString()})

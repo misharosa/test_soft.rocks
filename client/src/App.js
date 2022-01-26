@@ -18,15 +18,13 @@ export const App = () => {
   return (
     <>
         <div className="App">
-            <div className="page-container">
-                <AddContactForm />
-            </div>
-
+            <AddContactForm />
             <Routes>
                 {contacts.length > 0 &&
-                <Route path={`/test_soft.rocks`} element={<ContactList />}/>
+                <Route path={`/test_soft.rocks`} element={<ContactList />}>
+                </Route>
                 }
-                <Route path={`/details/${details.id}`} element={<ConfirmDeleteContact />} />
+                <Route path={`/test_soft.rocks/details/${details.id}`} element={<ConfirmDeleteContact />} />
             </Routes>
         </div>
     </>

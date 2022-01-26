@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./ContactList.css"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDetailsContact } from "../../store/contactSlice";
@@ -18,7 +18,13 @@ export const ContactList = () => {
                         <p>{contact.phone}</p>
                         <p>{contact.email}</p>
                         <div className="contact__button">
-                            <Link className="nav-link" to={`/details/${contact.id}`} onClick={() => dispatch(fetchDetailsContact(contact))}>Details</Link>
+                            <NavLink
+                                className="nav-link"
+                                to={`/test_soft.rocks/details/${contact.id}`}
+                                onClick={() => dispatch(fetchDetailsContact(contact))}
+                            >
+                                Details
+                            </NavLink>
                         </div>
                     </li>
                 ))}
