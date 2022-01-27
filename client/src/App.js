@@ -2,7 +2,7 @@ import './App.css';
 import { AddContactForm } from "./components/AddContactForm/AddContactForm";
 import { useEffect } from "react";
 import { ContactList } from "./components/ContactList/ContactList";
-import { ConfirmDeleteContact } from "./components/ConfirmDeleteContact/ConfirmDeleteContact";
+import { DetailsContact } from "./components/DetasilsContact/DetailsContact";
 import { Route, Routes } from "react-router-dom";
 import { fetchContacts } from "./store/contactSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +24,7 @@ export const App = () => {
                 <Route path={`/test_soft.rocks`} element={<ContactList />}>
                 </Route>
                 }
-                <Route path={`/test_soft.rocks/details/${details.id}`} element={<ConfirmDeleteContact />} />
+                <Route path={`/test_soft.rocks/details/${details.id}`} element={<DetailsContact />} />
             </Routes>
         </div>
     </>

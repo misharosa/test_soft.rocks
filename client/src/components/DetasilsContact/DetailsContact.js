@@ -1,23 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./ConfirmDeleteContact.css"
-import {deleteContact, fetchDetailsContact, updateContact} from "../../store/contactSlice";
+import "./DetailsContact.css"
+import { updateContact } from "../../store/contactSlice";
 import { NavLink } from "react-router-dom";
-import Modal from 'react-modal';
 import { usePrev } from "../../hooks/usePrev";
+import ConfirmModal from "./ConfirmModal/ConfirmModal";
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
-
-export const ConfirmDeleteContact = () => {
+export const DetailsContact = () => {
     const { details } = useSelector(state => state.contacts)
     const dispatch = useDispatch()
 
@@ -79,55 +68,13 @@ export const ConfirmDeleteContact = () => {
                     <NavLink className="nav-link" to={`/test_soft.rocks/details/${details.id}`} onClick={() => setIsOpen2(true)}>cancel edit</NavLink>
                 </div>
             </div>
-            <Modal
-                isOpen={modalIsOpen}
-                style={customStyles}
-                ariaHideApp={false}
-            >
-                <h4>Are you sure you want to delete?</h4>
-                <div className="modal__buttons">
-                    <NavLink
-                        className="nav-link"
-                        to={'/test_soft.rocks'}
-                        onClick={() => dispatch(deleteContact(details.id))}
-                    >
-                        Delete
-                    </NavLink>
-                    <NavLink
-                        className="nav-link"
-                        to={`/test_soft.rocks/details/${details.id}`}
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Close
-                    </NavLink>
-                </div>
-            </Modal>
-            <Modal
-                isOpen={modal2IsOpen}
-                style={customStyles}
-                ariaHideApp={false}
-            >
-                <h4>Are you sure cancel edit?</h4>
-                <div className="modal__buttons">
-                    <NavLink
-                        className="nav-link"
-                        to={`/test_soft.rocks/details/${details.id}`}
-                        onClick={() => {
-                            handlePrevValue()
-                            setIsOpen2(false)
-                        }}
-                    >
-                        Yes
-                    </NavLink>
-                    <NavLink
-                        className="nav-link"
-                        to={`/test_soft.rocks/details/${details.id}`}
-                        onClick={() => setIsOpen2(false)}
-                    >
-                        No
-                    </NavLink>
-                </div>
-            </Modal>
+            <ConfirmModal
+                handlePrevValue={handlePrevValue}
+                modalIsOpen={modalIsOpen}
+                modal2IsOpen={modal2IsOpen}
+                setIsOpen={setIsOpen}
+                setIsOpen2={setIsOpen2}
+            />
         </div>
     )
 }

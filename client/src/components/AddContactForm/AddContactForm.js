@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useCallback, useState} from "react";
 import './AddContact.css'
 import { useDispatch, useSelector } from "react-redux";
 import { sendNewContact } from "../../store/contactSlice";
@@ -37,7 +37,8 @@ export const AddContactForm = () => {
         }
     }
 
-    const emailValidation = (e) => {
+    const emailValidation = useCallback ((e) => {
+
         setEmail(e.target.value)
         const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         if (!re.test(String(e.target.value).toLowerCase())) {
@@ -45,9 +46,9 @@ export const AddContactForm = () => {
         } else {
             setEmailError('')
         }
-    }
+    }, [email])
 
-    const phoneValidation = (e) => {
+    const phoneValidation = useCallback ((e) => {
         setPhone(e.target.value)
        const re = /^\+?3?8?(0[\s\.-]\d{2}[\s\.-]\d{3}[\s\.-]\d{2}[\s\.-]\d{2})$/g
         if (!re.test(e.target.value)) {
@@ -55,9 +56,10 @@ export const AddContactForm = () => {
         } else {
             setPhoneError('')
         }
-    }
+    },[phone])
 
-    const handleSubmitForm = () => {
+    const handleSubmitForm = (e) => {
+        e.preventDefault()
         const newContact = {
                 email,
                 username: nickName,
@@ -72,17 +74,21 @@ export const AddContactForm = () => {
         setNickName('')
     }
 
+    const handleNickName = (e) => {
+            setNickName(e.target.value)
+            if (nickName.length > 0) {
+                setNickNameDirty(false)
+            }
+        }
+
     return (
         <form
-            onSubmit={(e) =>{
-                e.preventDefault()
-                handleSubmitForm()
-            }}
+            onSubmit={handleSubmitForm}
             action=""
             className="form"
         >
             <h1>Add Contact</h1>
-            <label htmlFor="">
+            <label htmlFor="name">
                 {nameDirty && <div className="validation">{'Name cannot be empty'}</div>}
                  <span>Name:</span>
                 <input
@@ -100,25 +106,20 @@ export const AddContactForm = () => {
                     placeholder="Enter name..."
                 />
             </label>
-            <label htmlFor="">
+            <label htmlFor="nick-name">
                 {nickNameDirty && <div className="validation">{'Nick-name cannot be empty'}</div>}
                 Nick :
             <input
                 onBlur={e => blurHandler(e)}
                 value={nickName}
-                onChange={(e) => {
-                setNickName(e.target.value)
-                    if (nickName.length > 0) {
-                        setNickNameDirty(false)
-                    }
-                }}
+                onChange={handleNickName}
                 className="form__nickname form__input"
                 name="nick-name"
                 type="text"
                 placeholder="Enter nick-name..."
             />
             </label>
-            <label htmlFor="">
+            <label htmlFor="phone">
                 {(phoneDirty && phoneError) && <div className="validation">{phoneError}</div>}
                 Phone:
             <input
@@ -131,7 +132,7 @@ export const AddContactForm = () => {
                 placeholder="+380 XX XXX XX XX"
             />
             </label>
-            <label htmlFor="">
+            <label htmlFor="email">
                 {(emailDirty && emailError) && <div className="validation">{emailError}</div>}
                 Email:
             <input

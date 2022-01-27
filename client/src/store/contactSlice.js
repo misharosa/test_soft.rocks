@@ -84,7 +84,6 @@ const contactSlice = createSlice({
             state.contacts.push({...action.payload, id: new Date().toISOString()})
         },
         removeContact (state, action) {
-            console.log(action.payload)
             state.contacts = state.contacts.filter(contact => contact.id !== action.payload)
         },
         detailsContact (state, action) {
